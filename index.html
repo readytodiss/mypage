@@ -48,25 +48,26 @@
       height: 100%;
       background: rgba(15, 23, 42, 0.6);
     }
+    
     header h1 {
       position: relative;
       z-index: 1;
-    }
-    header h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      color: white;
+      margin: 0 0 10px 0;
     }
+    
 
   header p {
   font-size: 1.2rem;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
-  color: #cbd5e1;
+  color: white;
+  margin: 0 0 10px 0;
   letter-spacing: 0.05em;
   background: rgba(29, 78, 216, 0.15);
   padding: 6px 12px;
   border-radius: 8px;
-  margin-top: 10px;
   display: inline-block;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   opacity: 0;
@@ -155,18 +156,29 @@ h2 i {
       header h1 {
         font-size: 1.5rem;
       }
+      
       header p {
         font-size: 0.9rem;
       }
+      
       h2 {
         font-size: 1.2rem;
       }
+      
       table, th, td {
         font-size: 0.85rem;
       }
+      
       .logo-container img {
-        width: 100px;
+        width: 120px;
+        max-height: 90px;
       }
+      
+      .logo-container h1 {
+       font-size: 1.5rem;
+      }
+
+      
     }
     .logo-container img {
        width: 160px;     /* Masaüstü için ideal genişlik */
@@ -177,22 +189,23 @@ h2 i {
        image-rendering: crisp-edges;
      }
     .logo-container {
+      min-height: 150px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container animated">
-      <img src="logo.png" alt="ReadyToDiss Logo">
-      <h1>ReadyToDiss</h1>
-    </div>
-    <p class="animated">Web Tasarımı ve Siber Güvenlik Hizmetleri</p>
-   </header>
+<header>
+  <div class="logo-container animated">
+    <img src="logo.png" alt="ReadyToDiss Logo" />
+  </div>
+  <h1 class="animated">ReadyToDiss</h1>
+  <p class="animated">Web Tasarımı ve Siber Güvenlik Hizmetleri</p>
+</header>
 
 
   <section>
