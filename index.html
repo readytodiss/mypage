@@ -9,7 +9,8 @@
   <meta name="author" content="ReadyToDiss Dijital Hizmetler">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <style>
     :root {
       --primary: #1d4ed8;
@@ -32,6 +33,7 @@
       color: white;
       width: 100%;
       position: relative;
+      overflow: hidden;
     }
     header::after {
       content: "";
@@ -63,11 +65,25 @@
       margin: 20px auto;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.6s ease;
+    }
+    section img:hover {
+      transform: scale(1.03);
     }
     h2 {
       color: var(--primary);
       margin-top: 20px;
       font-size: 1.5rem;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      margin: 10px auto 0;
+      border-radius: 2px;
     }
     table {
       width: 100%;
@@ -109,8 +125,8 @@
 </head>
 <body>
   <header>
-    <h1><i class="fas fa-shield-alt"></i> ReadyToDiss</h1>
-    <p>Web Tasarımı ve Siber Güvenlik Hizmetleri</p>
+    <h1 class="animated"> <i class="fas fa-shield-alt"></i> ReadyToDiss </h1>
+    <p class="animated">Web Tasarımı ve Siber Güvenlik Hizmetleri</p>
   </header>
 
   <section>
@@ -118,11 +134,14 @@
     <img src="https://readytodiss.com/1.png" alt="Web Hizmetleri">
     <table>
       <tr><th>Hizmet</th><th>Açıklama</th><th>Fiyat (TL)</th></tr>
-      <tr><td>Kurumsal Web Sitesi</td><td>Mobil uyumlu, özel tasarım, SEO destekli</td><td>50.000</td></tr>
-      <tr><td>E-Ticaret Sitesi</td><td>Ürün yönetimi, ödeme altyapısı, raporlama</td><td>100.000</td></tr>
-      <tr><td>Sayfa Başına Geliştirme</td><td>Yeni içerik sayfaları eklenmesi</td><td>1.500</td></tr>
-      <tr><td>Form / İletişim Modülü</td><td>Mail gönderimli formlar</td><td>1.000</td></tr>
-      <tr><td>SEO Optimizasyonu</td><td>Site içi anahtar kelime ve meta ayarları</td><td>3.000</td></tr>
+      <tr><td>Kurumsal Web Sitesi</td><td>Mobil uyumlu, SEO odaklı özel frontend + backend tasarımı</td><td>50.000</td></tr>
+      <tr><td>E-Ticaret Sitesi</td><td>Stok yönetimi, ödeme altyapısı, kullanıcı hesapları</td><td>100.000</td></tr>
+      <tr><td>Sayfa Başına İçerik</td><td>Kurumsal sayfa, blog, hizmet, ekip, iletişim gibi modüller</td><td>1.500</td></tr>
+      <tr><td>Form/Anket Modülü</td><td>İletişim, talep, rezervasyon, geri bildirim formları</td><td>1.000</td></tr>
+      <tr><td>SEO Optimizasyonu</td><td>Meta etiketleri, site haritası, sayfa hızı optimizasyonu</td><td>3.000</td></tr>
+      <tr><td>Logo & Görsel Uyarlama</td><td>Kurumsal kimliğe uygun favicon, header, slider grafikleri</td><td>2.000</td></tr>
+      <tr><td>Çoklu Dil Desteği</td><td>TR/EN içerik modülü ve kullanıcıya göre yönlendirme</td><td>4.000</td></tr>
+      <tr><td>Canlı Destek/ChatBot</td><td>WhatsApp entegrasyonu, hızlı yanıt sistemleri</td><td>1.500</td></tr>
     </table>
   </section>
 
@@ -131,16 +150,42 @@
     <img src="https://readytodiss.com/2.png" alt="Siber Güvenlik">
     <table>
       <tr><th>Hizmet</th><th>Açıklama</th><th>Fiyat (TL)</th></tr>
-      <tr><td>Penetrasyon Testi</td><td>Ağ, sunucu ve uygulama seviyesinde açıkların tespiti ve raporlama</td><td>25.000</td></tr>
-      <tr><td>Firewall Yapılandırması</td><td>Kurumsal güvenlik duvarı kurulumu ve kural seti oluşturulması</td><td>12.000</td></tr>
-      <tr><td>DDoS Koruma</td><td>Yüksek trafiğe karşı aktif koruma yapılandırılması</td><td>10.000</td></tr>
-      <tr><td>Web Uygulama Testi</td><td>OWASP Top 10 zafiyetlerine karşı test ve rapor</td><td>15.000</td></tr>
-      <tr><td>Log İzleme & SIEM</td><td>Merkezi log izleme ve tehdit algılama</td><td>18.000</td></tr>
+      <tr><td>Penetrasyon Testi</td><td>Ağ, sunucu ve uygulama seviyesinde açık tespiti ve raporlama</td><td>25.000</td></tr>
+      <tr><td>Firewall Yapılandırması</td><td>Fortigate, MikroTik, Cisco sistemlerinde kurumsal kurallar</td><td>12.000</td></tr>
+      <tr><td>DDoS Koruma</td><td>Layer 3–4 trafiğine karşı aktif saldırı önleme</td><td>10.000</td></tr>
+      <tr><td>Web Uygulama Güvenliği</td><td>OWASP Top 10 kapsamında test ve güçlendirme</td><td>15.000</td></tr>
+      <tr><td>SIEM & Log İzleme</td><td>Elastic, Wazuh veya Graylog ile saldırı tespiti ve alarmlar</td><td>18.000</td></tr>
+      <tr><td>Antivirüs & Uç Nokta</td><td>Kurumsal antivirüs çözümleri (EDR/XDR)</td><td>5.000</td></tr>
+      <tr><td>Kullanıcı Farkındalık Eğitimi</td><td>Sosyal mühendislik, kimlik avı ve güvenli parola eğitimleri</td><td>2.500</td></tr>
     </table>
   </section>
 
   <footer>
     &copy; 2025 ReadyToDiss Dijital Hizmetler. Tüm hakları saklıdır.
   </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(".animated", {
+      opacity: 0,
+      y: -30,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+    gsap.utils.toArray("section").forEach(section => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  </script>
 </body>
 </html>
