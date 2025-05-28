@@ -80,6 +80,15 @@
     section img:hover {
       transform: scale(1.03);
     }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
     h2 {
       color: var(--primary);
       margin-top: 20px;
@@ -135,10 +144,10 @@
 </head>
 <body>
   <header>
-    <h1 class="animated">
-      <img src="https://readytodiss.com/logo.png" alt="ReadyToDiss Logo" style="width: 72px; height: auto; vertical-align: middle; margin-right: 12px;">
-       ReadyToDiss
-    </h1>
+    <div class="logo-container animated">
+      <img src="logo.png" alt="ReadyToDiss Logo">
+      <h1>ReadyToDiss</h1>
+    </div>
     <p class="animated">Web Tasarımı ve Siber Güvenlik Hizmetleri</p>
   </header>
 
@@ -176,6 +185,10 @@
       <tr><td>Kullanıcı Farkındalık Eğitimi</td><td>Sosyal mühendislik, kimlik avı ve güvenli parola eğitimleri</td><td>2.500+</td></tr>
     </table>
   </section>
+
+  <footer>
+    &copy; ReadyToDiss Dijital Hizmetler. Tüm hakları saklıdır.
+  </footer>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
